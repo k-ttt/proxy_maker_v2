@@ -1,0 +1,16 @@
+.logo {
+    img {
+        width: 60px;
+        height: 40px;
+        object-fit: cover;
+    }
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    height: 40px;
+    margin: 0 30px 0 0;
+    font-style: italic;
+}
