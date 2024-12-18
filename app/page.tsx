@@ -4,6 +4,8 @@ import styles from "./page.module.css";
 import headerStyles from "./header.module.css";
 import { useStateContext } from "./context/StateContext";
 import Link from "next/link";
+import config from "../next.config";
+const BASE_PATH = config.basePath ?? "";
 
 export default function Home() {
   const { count, proxies, setCount, setProxies } = useStateContext();
@@ -34,7 +36,7 @@ export default function Home() {
     <div>
       <header>
         <div className={headerStyles.logo}>
-          <img src="/logo.png" alt="logo" />
+          <img src={`${BASE_PATH}/logo.png`} alt="logo" />
         </div>
         <div>
           <p className={headerStyles.title}>TCGプロキシメーカー var.2</p>
@@ -85,12 +87,12 @@ export default function Home() {
         ))}
         <div className={styles.actionBar}>
           <div onClick={handleAddClick}>
-            <img src="/plus.png" alt="Add" />
+            <img src={`${BASE_PATH}/plus.png`} alt="Add" />
             追加
           </div>
           {count > 10 && (
             <div onClick={handleRemoveClick}>
-              <img src="/delete.png" alt="Remove" />
+              <img src={`${BASE_PATH}/delete.png`} alt="Remove" />
               削除
             </div>
           )}
