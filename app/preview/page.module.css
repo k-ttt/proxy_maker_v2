@@ -9,19 +9,11 @@
   display: flex;
   width: 63mm;
   height: 88mm;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
 }
-
-@media print {
-  html, body {
-    background-color: white !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+.imgBlock img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 @page {

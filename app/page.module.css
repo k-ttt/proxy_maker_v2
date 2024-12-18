@@ -6,14 +6,12 @@
   border-radius: 10px;
   font-size: 12px;
 }
-.captionArea {
-  div {
-    display: grid;
-    justify-content: center;
-  }
-  p {
-    margin: 2px 0;
-  }
+.captionArea div {
+  display: grid;
+  justify-content: center;
+}
+.captionArea p {
+  margin: 2px 0;
 }
 .inputArea {
   margin-bottom: 20px;
@@ -28,42 +26,41 @@
   padding: 5px;
   border-bottom: 1px solid #ffff;
   font-size: 12px;
-
-  label {
-    width: 100%;
-    max-width: 45px;
-    text-align: right;
-  }
+}
+.inputBlock label {
+  width: 100%;
+  max-width: 45px;
+  text-align: right;
+}
   
-  input {
-    width: 90px;
-    height: 20px;
-    border: none;
-    border-bottom: 1px solid #ffff;
-    background: transparent;
-    color: #ffff;
-  }
+.inputBlock input {
+  width: 90px;
+  height: 20px;
+  border: none;
+  border-bottom: 1px solid #ffff;
+  background: transparent;
+  color: #ffff;
+}
 
-  select {
-    width: 40px;
-    height: 24px;
-    border: none;
-    appearance: none;
-    border-bottom: 1px solid #ffff;
-    background: transparent;
-    color: #ffff;
-    cursor: pointer;
-    text-align: center;
-    font-family: Mochiy Pop One, Mochiy Pop One Fallback;
-  }
+.inputBlock select {
+  width: 40px;
+  height: 24px;
+  border: none;
+  appearance: none;
+  border-bottom: 1px solid #ffff;
+  background: transparent;
+  color: #ffff;
+  cursor: pointer;
+  text-align: center;
+  font-family: Mochiy Pop One, Mochiy Pop One Fallback;
+}
 
-  img {
-    width: 100%;
-    max-width: 200px;
-    height: 40px;
-    object-fit: cover;
-    object-position: 15% 15%;
-  }
+.inputBlock img {
+  width: 100%;
+  max-width: 200px;
+  height: 40px;
+  object-fit: cover;
+  object-position: 15% 15%;
 }
 
 .blankImg {
@@ -84,17 +81,15 @@
   justify-content: center;
   gap: 60px;
   margin: 10px 0;
-
-  div {
-    display: flex;
-    gap: 5px;
-    cursor: pointer;
-
-    img {
-      width: 20px;
-      height: 20px;
-    }
-  }
+}
+.actionBar div {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+}
+.actionBar img {
+  width: 20px;
+  height: 20px;
 }
 
 .previewArea {
@@ -102,17 +97,16 @@
   top: 140px;
   right: 20px;
   margin: 10px 0;
-
-  button {
-    width: 130px;
-    height: 35px;
-    border: solid 4px #242424;
-    border-radius: 50px;
-    background:#ffffff;
-    color: #242424;
-    font-size: 12px;
-    cursor: pointer;
-    font-style: italic;
-    font-family: Mochiy Pop One, Mochiy Pop One Fallback;
-  }
+}
+.previewArea button {
+  width: 130px;
+  height: 35px;
+  border: solid 4px #242424;
+  border-radius: 50px;
+  background:#ffffff;
+  color: #242424;
+  font-size: 12px;
+  cursor: pointer;
+  font-style: italic;
+  font-family: Mochiy Pop One, Mochiy Pop One Fallback;
 }
