@@ -60,6 +60,14 @@ export default function Home() {
               placeholder="画像URL"
               value={proxy.url || ""}
               onChange={(e) => handleInputChange(i, e.target.value)}
+              onPaste={(e: React.ClipboardEvent<HTMLInputElement>) => {
+                const files = e.clipboardData.files;
+                if (files.length === 0) {
+                  return;
+                }
+                handleInputChange(i, URL.createObjectURL(files[0]));
+                e.preventDefault();
+              }}
             />
             {proxy.url ? (
               <select

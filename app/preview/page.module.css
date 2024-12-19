@@ -1,14 +1,13 @@
 .lineBlock {
-  width: 297mm;
+  width: 100%;
   display: flex;
   margin: 0;
   padding: 0; 
 }
 
 .imgBlock {
+  width: 33.33%;
   display: flex;
-  width: 63mm;
-  height: 88mm;
 }
 .imgBlock img {
   width: 100%;
@@ -19,4 +18,14 @@
 @page {
   size: A4 portrait;
   margin: 16mm 10mm;
+}
+
+@media print {
+  .lineBlock {
+    width: 297mm;
+  }
+  .imgBlock {
+    width: 63mm;
+    height: 88mm;
+  }
 }
