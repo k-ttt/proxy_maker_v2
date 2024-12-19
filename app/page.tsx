@@ -39,7 +39,7 @@ export default function Home() {
           <img src={`${BASE_PATH}/logo.png`} alt="logo" />
         </div>
         <div>
-          <p className={headerStyles.title}>TCGプロキシメーカー var.2</p>
+          <p className={headerStyles.title}>TCGプロキシメーカー ver.2</p>
         </div>
       </header>
       <div className={styles.captionArea}>
@@ -48,7 +48,7 @@ export default function Home() {
           <p>1. カードの画像URLを入力（画像が表示されたらOK）</p>
           <p>2. 作成枚数を選択（最大4枚）</p>
           <p>3. 印刷プレビューボタンで印刷用画面を表示</p>
-          <p>4. 画面をPDFで保存</p>
+          <p>4. 画面を印刷（ネットプリントはPDF保存）</p>
         </div>
       </div>
       <div className={styles.inputArea}>
