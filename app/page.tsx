@@ -12,13 +12,26 @@ export default function Home() {
 
   const handleInputChange = (index: number, value: string) => {
     const newProxies = [...proxies];
-    newProxies[index] = { url: value, count: 1 };
+    newProxies[index] = { url: value, count: 1, isCircular: false };
     setProxies(newProxies);
   };
 
   const handleSelectChange = (index: number, value: number) => {
     const newProxies = [...proxies];
     newProxies[index] = { ...newProxies[index], count: value };
+    setProxies(newProxies);
+  };
+
+  const handleCircularChange = (index: number) => {
+    const newProxies = [...proxies];
+    const proxy = newProxies[index];
+    if (!proxy.url) {
+      return;
+    }
+    newProxies[index] = {
+      ...newProxies[index],
+      isCircular: !newProxies[index].isCircular,
+    };
     setProxies(newProxies);
   };
 
@@ -46,9 +59,10 @@ export default function Home() {
         <div>
           <p>使い方</p>
           <p>1. カードの画像URLを入力（画像が表示されたらOK）</p>
-          <p>2. 作成枚数を選択（最大4枚）</p>
-          <p>3. 印刷プレビューボタンで印刷用画面を表示</p>
-          <p>4. 画面を印刷（ネットプリントはPDF保存）</p>
+          <p>2. 作成枚数を選択（最大10枚）</p>
+          <p>3. 画像を90度回転したいもは回転アイコンをチェック</p>
+          <p>4. 印刷プレビューボタンで印刷用画面を表示</p>
+          <p>5. 画面を印刷（ネットプリントはPDF保存）</p>
         </div>
       </div>
       <div className={styles.inputArea}>
@@ -74,7 +88,7 @@ export default function Home() {
                 value={proxy.count}
                 onChange={(e) => handleSelectChange(i, Number(e.target.value))}
               >
-                {Array(4)
+                {Array(10)
                   .fill(0)
                   .map((_, i) => (
                     <option key={i} value={i + 1}>
@@ -86,8 +100,28 @@ export default function Home() {
               <div className={styles.blankCount}>0</div>
             )}
             枚
+            <div
+              className={styles.circularButton}
+              onClick={() => handleCircularChange(i)}
+            >
+              <img
+                src={`${BASE_PATH}/${
+                  proxy.isCircular
+                    ? "circularArrow.png"
+                    : "circularArrowBlank.png"
+                }`}
+                alt="Circular"
+              />
+            </div>
             {proxy.url ? (
-              <img src={proxy.url} alt={`Image ${i + 1}`} />
+              <div
+                className={[
+                  styles.imgBlock,
+                  `${proxy.isCircular ? styles.circular : ""}`,
+                ].join(" ")}
+              >
+                <img src={proxy.url} alt={`Image ${i + 1}`} />
+              </div>
             ) : (
               <div className={styles.blankImg} />
             )}

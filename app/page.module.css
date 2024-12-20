@@ -23,8 +23,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 5px;
+  gap: 3px;
+  padding: 5px 0;
   border-bottom: 1px solid #ffff;
   font-size: 12px;
 }
@@ -45,7 +45,8 @@
 }
 
 .inputBlock select {
-  width: 40px;
+  width: 24px;
+  min-width: 24px;
   height: 24px;
   border: none;
   appearance: none;
@@ -57,12 +58,40 @@
   font-family: Mochiy Pop One, Mochiy Pop One Fallback;
 }
 
-.inputBlock img {
+.circularButton {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.circularButton img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.imgBlock {
+  position: relative;
   width: 100%;
   max-width: 200px;
   height: 40px;
+  overflow: hidden;
+}
+
+.imgBlock img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: 15% 15%;
+}
+
+.circular img {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  width: auto;
+  height: auto;
+  max-height: 200px;
 }
 
 .blankImg {
@@ -72,7 +101,8 @@
 }
 
 .blankCount {
-  width: 40px;
+  width: 24px;
+  min-width: 24px;
   height: 22px;
   border-bottom: 1px solid #ffff;
   text-align: center;
