@@ -6,30 +6,24 @@
 }
 
 .imgBlock {
-  position: relative;
   width: calc(30vw - 10px);
   height: calc((30vw - 10px) * 88/63);
-  display: flex;
+  overflow: hidden;
 }
 .imgBlock img {
-  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
 .circular img {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
+  transform: translate(-14.1%, 0%) rotate(-90deg);
   width: calc((30vw - 10px) * 88/63);
-  height: calc(30vw - 10px);
 }
 
 @page {
   size: A4 portrait;
-  /* margin: 16mm 10mm; */
-  margin: 16.5mm 10mm;
+  margin: 16mm 10mm;
 }
 
 @media print {
@@ -42,6 +36,5 @@
   }
   .circular img {
     width: 88mm;
-    height: 63mm;
   }
 }
