@@ -75,6 +75,7 @@
   max-width: 200px;
   height: 40px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .imgBlock img {
@@ -126,8 +127,8 @@
 
 .previewArea {
   position: fixed;
-  top: 155px;
-  right: 20px;
+  top: 180px;
+  right: calc((50% - 130px / 2) / 2);
   margin: 10px 0;
 }
 .previewArea button {
@@ -141,4 +142,41 @@
   cursor: pointer;
   font-style: italic;
   font-family: Mochiy Pop One, Mochiy Pop One Fallback;
+}
+
+.cardModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardModalContent {
+  width: 80vw;
+  height: 80vh;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideDown 0.2s ease forwards;
+}
+@keyframes slideDown {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+.cardModalContent img {
+  max-width: calc(100% - 10px);
+  max-height: calc(100% - 10px);
+  object-fit: contain;
 }

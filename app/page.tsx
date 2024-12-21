@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import styles from "./page.module.css";
 import headerStyles from "./header.module.css";
 import { useStateContext } from "./context/StateContext";
@@ -9,6 +10,7 @@ const BASE_PATH = config.basePath ?? "";
 
 export default function Home() {
   const { count, proxies, setCount, setProxies } = useStateContext();
+  const [showCard, setShowCard] = useState<string>("");
 
   const handleInputChange = (index: number, value: string) => {
     const newProxies = [...proxies];
@@ -33,6 +35,10 @@ export default function Home() {
       isCircular: !newProxies[index].isCircular,
     };
     setProxies(newProxies);
+  };
+
+  const handleShowCard = (cardUrl: string) => {
+    setShowCard(cardUrl);
   };
 
   const handleAddClick = () => {
@@ -60,7 +66,7 @@ export default function Home() {
           <p>使い方</p>
           <p>1. カードの画像URLを入力（画像が表示されたらOK）</p>
           <p>2. 作成枚数を選択（最大10枚）</p>
-          <p>3. 画像を90度回転したいもは回転アイコンをチェック</p>
+          <p>3. 画像を90度回転したいものは回転アイコンをチェック</p>
           <p>4. 印刷プレビューボタンで印刷用画面を表示</p>
           <p>5. 画面を印刷（ネットプリントはPDF保存）</p>
         </div>
@@ -119,6 +125,7 @@ export default function Home() {
                   styles.imgBlock,
                   `${proxy.isCircular ? styles.circular : ""}`,
                 ].join(" ")}
+                onClick={() => handleShowCard(proxy.url)}
               >
                 <img src={proxy.url} alt={`Image ${i + 1}`} />
               </div>
@@ -143,6 +150,13 @@ export default function Home() {
       <Link href="/preview" className={styles.previewArea}>
         <button>印刷プレビュー</button>
       </Link>
+      {showCard && (
+        <div className={styles.cardModal} onClick={() => setShowCard("")}>
+          <div className={styles.cardModalContent}>
+            <img src={showCard} alt="Card" />
+          </div>
+        </div>
+      )}
       <footer style={{ height: "20px", textAlign: "center", fontSize: "10px" }}>
         © 2024 Magigori
       </footer>
