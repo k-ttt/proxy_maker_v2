@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mochiy_Pop_One } from "next/font/google";
 import "./globals.css";
-import { StateProvider } from "./context/StateContext";
+import { ProxiesProvider } from "./_contexts/Proxies";
 import config from "../next.config";
 const BASE_PATH = config.basePath ?? "";
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "Create TCG proxies pdf file.",
   icons: {
     icon: `${BASE_PATH}/favicon.ico`,
-  }
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={mochiyPopOne.className}>
-        <StateProvider>{children}</StateProvider>
+        <ProxiesProvider>{children}</ProxiesProvider>
       </body>
     </html>
   );

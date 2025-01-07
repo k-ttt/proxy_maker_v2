@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useStateContext } from "../context/StateContext";
+import { useProxiesContext } from "../_contexts/Proxies";
 import style from "./page.module.css";
 import "./page.module.css";
 
@@ -11,7 +11,7 @@ type Image = {
 };
 
 export default function Preview() {
-  const { proxies } = useStateContext();
+  const { proxies } = useProxiesContext();
   const [printProxyUrls, setPrintProxyUrls] = useState<Image[][]>([]);
 
   useEffect(() => {
